@@ -1,0 +1,5 @@
+{
+  "files": [],
+  "references": [{ "path": "apps/react-wagmi" }, { "path": "packages/ui" }],
+  "include": ["eslint.config.js"]
+}
