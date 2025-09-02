@@ -26,6 +26,18 @@ clean:
 	@npm run clean --workspaces --if-present
 	@echo "$(GREEN)✅ Cleanup completed$(RESET)"
 
+clean-deps:
+	@echo "$(BOLD)$(RED)🗑️ Removing node_modules and package-lock.json...$(RESET)"
+	@rm -rf node_modules package-lock.json
+	@rm -rf apps/*/node_modules apps/*/package-lock.json
+	@rm -rf packages/*/node_modules packages/*/package-lock.json
+	@echo "$(GREEN)✅ Dependencies cleaned$(RESET)"
+
+fresh-install: clean-deps
+	@echo "$(BOLD)$(BLUE)🔄 Fresh dependency installation...$(RESET)"
+	@npm install
+	@echo "$(GREEN)✅ Fresh installation completed$(RESET)"
+
 build:
 	@echo "$(BOLD)$(BLUE)🏗️ Building all workspaces...$(RESET)"
 	@npm run build --workspaces --if-present
@@ -47,4 +59,4 @@ dev-react-wagmi:
 build-react-wagmi:
 	npm run build --workspace=apps/react-wagmi
 
-.PHONY: lint typecheck format clean build install	
+.PHONY: lint typecheck format clean clean-deps fresh-install build install dev dev-react-wagmi build-react-wagmi
