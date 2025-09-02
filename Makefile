@@ -44,4 +44,7 @@ dev:
 dev-react-wagmi:
 	npm run dev --workspace=apps/react-wagmi
 
+build-react-wagmi:
+	npm run build --workspace=apps/react-wagmi
+
 .PHONY: lint typecheck format clean build install	
