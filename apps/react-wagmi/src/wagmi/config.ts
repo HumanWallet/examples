@@ -4,7 +4,6 @@ import { humanWalletConnector } from "@humanwallet/connector"
 
 // Replace with your actual ZeroDev project ID
 const PROJECT_ID = import.meta.env.VITE_HW_PROJECT_ID
-console.log("PROJECT_ID", PROJECT_ID)
 
 export const config = createConfig({
   chains: [sepolia, mainnet, polygon], // Sepolia as default, Polygon Amoy as alternative
