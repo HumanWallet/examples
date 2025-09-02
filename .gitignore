@@ -36,4 +36,5 @@ jspm_packages/
 # npm workspaces
 **/node_modules
 **/dist
-**/build
+**/build# Environment files
+.env.local
