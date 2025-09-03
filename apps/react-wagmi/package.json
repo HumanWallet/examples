@@ -13,12 +13,14 @@
   },
   "dependencies": {
     "@examples/ui": "^1.0.0",
+    "@humanwallet/connector": "^1.0.0",
     "@tailwindcss/vite": "^4.1.12",
     "@tanstack/react-query": "^5.85.8",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router": "^7.8.2",
     "viem": "^2.37.1",
+    "vite-plugin-node-polyfills": "^0.24.0",
     "wagmi": "^2.16.9"
   },
   "devDependencies": {
