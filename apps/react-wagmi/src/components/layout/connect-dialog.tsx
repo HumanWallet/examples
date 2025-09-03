@@ -20,9 +20,14 @@ export function ConnectDialog({ children }: { children: React.ReactNode }) {
 
   const handleConnectHumanWallet = (connector: Connector): void => {
     // Simple connect - the connector will handle login vs registration automatically
-    connect({ connector }, {onError: (error) => {
-      console.error(error)
-    }})
+    connect(
+      { connector },
+      {
+        onError: (error) => {
+          console.error(error)
+        },
+      },
+    )
   }
 
   const handleCreateNewWallet = (connector: Connector): void => {
