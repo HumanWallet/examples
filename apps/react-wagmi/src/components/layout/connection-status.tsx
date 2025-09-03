@@ -23,10 +23,6 @@ export function ConnectionStatus({
 }: ConnectionStatusProps) {
   return (
     <div className="flex items-center gap-4">
-      <div className="hidden sm:block">
-        <ModeToggle />
-      </div>
-
       {isAuthenticated && userAddress ? (
         <WalletDropdown
           userAddress={userAddress}
@@ -40,6 +36,9 @@ export function ConnectionStatus({
           <Button>Connect</Button>
         </ConnectDialog>
       )}
+      <div className="hidden sm:block">
+        <ModeToggle />
+      </div>
     </div>
   )
 }
