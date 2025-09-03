@@ -145,7 +145,11 @@ export function ConnectWallet() {
   const { connectors, connect, isPending } = useConnect()
 
   const handleConnect = (connector: Connector) => {
-    connect({ connector })
+    connect({ connector }, {
+      onError: (error) => {
+        console.error("Connection failed:", error)
+      }
+    })
   }
 
   const handleCreateNew = (connector: Connector) => {
@@ -274,18 +278,14 @@ export function MessageSigner() {
   const [signature, setSignature] = useState<string | null>(null)
   const { signMessage, isPending, error } = useSignMessage()
 
-  const handleSign = async () => {
-    try {
-      await signMessage(
-        { message },
-        {
-          onSuccess: (sig) => setSignature(sig),
-          onError: (err) => console.error("Signing failed:", err),
-        }
-      )
-    } catch (err) {
-      console.error("Failed to sign:", err)
-    }
+  const handleSign = () => {
+    signMessage(
+      { message },
+      {
+        onSuccess: (sig) => setSignature(sig),
+        onError: (err) => console.error("Signing failed:", err),
+      }
+    )
   }
 
   return (
@@ -329,10 +329,16 @@ export function SendTransaction() {
   })
 
   const handleSend = () => {
-    sendTransaction({
-      to: "0x...", // recipient address
-      value: parseEther("0.01"), // 0.01 ETH
-    })
+    sendTransaction(
+      {
+        to: "0x...", // recipient address
+        value: parseEther("0.01"), // 0.01 ETH
+      },
+      {
+        onSuccess: (hash) => console.log("Transaction sent:", hash),
+        onError: (error) => console.error("Transaction failed:", error),
+      }
+    )
   }
 
   return (
@@ -376,12 +382,18 @@ export function TokenTransfer() {
   })
 
   const handleTransfer = () => {
-    writeContract({
-      address: "0x...", // token contract address
-      abi: ERC20_ABI,
-      functionName: "transfer",
-      args: ["0x...", parseUnits("100", 18)], // recipient, amount
-    })
+    writeContract(
+      {
+        address: "0x...", // token contract address
+        abi: ERC20_ABI,
+        functionName: "transfer",
+        args: ["0x...", parseUnits("100", 18)], // recipient, amount
+      },
+      {
+        onSuccess: (hash) => console.log("Transfer initiated:", hash),
+        onError: (error) => console.error("Transfer failed:", error),
+      }
+    )
   }
 
   return (
@@ -438,7 +450,9 @@ export function useHumanWallet() {
 
   const connectHumanWallet = () => {
     if (humanWalletConnector) {
-      connect({ connector: humanWalletConnector })
+      connect({ connector: humanWalletConnector }, {
+        onError: (error) => console.error("Connection failed:", error)
+      })
     }
   }
 
@@ -518,11 +532,15 @@ export function ConnectWithErrorHandling() {
   const { connect, error, isPending } = useConnect()
 
   const handleConnect = (connector: any) => {
-    try {
-      connect({ connector })
-    } catch (err) {
-      console.error("Connection failed:", err)
-    }
+    connect({ connector }, {
+      onError: (error) => {
+        console.error("Connection failed:", error)
+        // Handle specific error types
+        if (error.message.includes("User rejected")) {
+          console.log("User cancelled the passkey authentication")
+        }
+      }
+    })
   }
 
   return (
