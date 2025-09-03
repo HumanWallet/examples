@@ -45,6 +45,7 @@ build:
 
 install:
 	@echo "$(BOLD)$(BLUE)📦 Installing dependencies for all workspaces...$(RESET)"
+	@npm install
 	@npm install --workspaces
 	@echo "$(GREEN)✅ Installation completed$(RESET)"
 
