@@ -1,4 +1,4 @@
-import { Home, TrendingUp, Wallet, Network, Zap, Key } from "lucide-react"
+import { Home, TrendingUp, Network, Zap, Key } from "lucide-react"
 import { Link } from "react-router"
 import {
   NavigationMenu,
@@ -36,18 +36,6 @@ export function MainNavigation() {
                   </div>
                   <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                     Experience both bundle and step-by-step staking workflows
-                  </p>
-                </Link>
-              </NavigationMenuLink>
-
-              <NavigationMenuLink asChild>
-                <Link to="/connect">
-                  <div className="flex items-center gap-2">
-                    <Wallet className="size-4" />
-                    <div className="text-sm font-medium leading-none">Connect Wallet</div>
-                  </div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                    Try passwordless authentication with passkeys
                   </p>
                 </Link>
               </NavigationMenuLink>
