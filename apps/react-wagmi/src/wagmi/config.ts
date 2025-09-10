@@ -2,7 +2,6 @@ import { createConfig, http } from "wagmi"
 import { mainnet, sepolia, polygon } from "wagmi/chains"
 import { humanWalletConnector } from "@humanwallet/connector"
 
-// Replace with your actual ZeroDev project ID
 const PROJECT_ID = import.meta.env.VITE_HW_PROJECT_ID
 
 export const config = createConfig({
