@@ -9,8 +9,6 @@ export const config = createConfig({
   connectors: [
     humanWalletConnector({
       projectId: PROJECT_ID,
-      appName: "Wagmi Passkeys App",
-      passkeyName: "My Wallet", // Default name (users can customize this),
       logging: {
         developerMode: true,
       },

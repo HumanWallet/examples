@@ -27,10 +27,12 @@ clean:
 	@echo "$(GREEN)✅ Cleanup completed$(RESET)"
 
 clean-deps:
-	@echo "$(BOLD)$(RED)🗑️ Removing node_modules and package-lock.json...$(RESET)"
+	@echo "$(BOLD)$(RED)🗑️ Removing node_modules, dist, build and package-lock.json...$(RESET)"
 	@rm -rf node_modules package-lock.json
 	@rm -rf apps/*/node_modules apps/*/package-lock.json
 	@rm -rf packages/*/node_modules packages/*/package-lock.json
+	@rm -rf apps/*/dist apps/*/build apps/*/vercel
+	@rm -rf packages/*/dist packages/*/build packages/*/vercel
 	@echo "$(GREEN)✅ Dependencies cleaned$(RESET)"
 
 fresh-install: clean-deps
