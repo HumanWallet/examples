@@ -14,12 +14,6 @@ export default defineConfig({
       include: ["buffer", "crypto", "stream", "util"],
       // Exclude polyfills that aren't needed
       exclude: ["fs", "path", "os"],
-      // Use smaller polyfills where possible
-      globals: {
-        Buffer: true,
-        global: true,
-        process: true,
-      },
     }),
   ],
   resolve: {
@@ -28,6 +22,7 @@ export default defineConfig({
       "@humanwallet/ui": path.resolve(__dirname, "../../packages/ui/src/index.ts"),
     },
   },
+
   build: {
     rollupOptions: {
       output: {
@@ -43,18 +38,8 @@ export default defineConfig({
     },
     // Increase chunk size warning limit since we're now splitting chunks
     chunkSizeWarningLimit: 1000,
-    // Enable CSS code splitting
-    cssCodeSplit: true,
-    // Optimize dependencies
-    commonjsOptions: {
-      include: [/node_modules/],
-    },
+
     // Enable source maps for production debugging (optional)
     sourcemap: false,
-  },
-  // Optimize dependencies
-  optimizeDeps: {
-    include: ["react", "react-dom", "react-router"],
-    exclude: ["@humanwallet/connector"],
   },
 })
