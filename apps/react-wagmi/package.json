@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@examples/ui": "^1.0.0",
-    "@humanwallet/connector": "^1.2.4",
+    "@humanwallet/connector": "^1.2.6",
     "@tailwindcss/vite": "^4.1.12",
     "@tanstack/react-query": "^5.89.0",
     "react": "^19.1.1",
