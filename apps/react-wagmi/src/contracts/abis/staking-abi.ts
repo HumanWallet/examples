@@ -2,23 +2,23 @@ import type { Abi } from "viem"
 
 export const STAKING_ABI: Abi = [
   {
-    type: "constructor",
-    inputs: [{ name: "_token", type: "address", internalType: "address" }],
+    inputs: [{ internalType: "address", name: "_token", type: "address" }],
     stateMutability: "nonpayable",
+    type: "constructor",
   },
   {
-    type: "function",
+    inputs: [{ internalType: "uint256", name: "amount", type: "uint256" }],
     name: "deposit",
-    inputs: [{ name: "amount", type: "uint256", internalType: "uint256" }],
     outputs: [],
     stateMutability: "nonpayable",
-  },
-  { type: "function", name: "depositAll", inputs: [], outputs: [], stateMutability: "nonpayable" },
-  {
     type: "function",
-    name: "token",
-    inputs: [],
-    outputs: [{ name: "", type: "address", internalType: "contract IERC20" }],
-    stateMutability: "view",
   },
-]
+  { inputs: [], name: "depositAll", outputs: [], stateMutability: "nonpayable", type: "function" },
+  {
+    inputs: [],
+    name: "token",
+    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+] as const
