@@ -71,7 +71,7 @@ export function ConnectDialog({ children }: { children: React.ReactNode }) {
 
           <div className="flex flex-col gap-4">
             {connectors.map((connector) => {
-              if (connector.name === "HumanWallet") {
+              if (connector.name === "humanWallet") {
                 return (
                   <div key={connector.uid} className="flex flex-col gap-4">
                     <Button
