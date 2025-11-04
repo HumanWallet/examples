@@ -3,6 +3,11 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# Package manager lock files (keep pnpm-lock.yaml, ignore others)
+package-lock.json
+yarn.lock
 
 # TypeScript
 *.tsbuildinfo
@@ -17,6 +22,9 @@ jspm_packages/
 
 # Optional npm cache directory
 .npm
+
+# Optional pnpm cache directory
+.pnpm-store
 
 # Optional eslint cache
 .eslintcache
@@ -33,8 +41,13 @@ jspm_packages/
 # Mac system files
 .DS_Store
 
-# npm workspaces
+# Workspaces
 **/node_modules
 **/dist
-**/build# Environment files
+**/build
+
+# Turborepo
+.turbo
+
+# Environment files
 .env.local
