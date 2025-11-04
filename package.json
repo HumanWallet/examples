@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "packageManager": "pnpm@10.20.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "turbo run format",
+    "clean": "turbo run clean"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
-  "workspaces": [
-    "apps/react-wagmi",
-    "packages/ui"
-  ],
   "devDependencies": {
     "@eslint/js": "^9.34.0",
     "@types/node": "^24.3.0",
@@ -25,6 +27,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "prettier": "3.6.2",
+    "turbo": "^2.6.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
     "vite-plugin-node-polyfills": "^0.24.0"

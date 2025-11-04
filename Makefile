@@ -8,58 +8,58 @@ BOLD := \033[1m
 
 lint:
 	@echo "$(BOLD)$(BLUE)🔍 Running linting across all workspaces...$(RESET)"
-	@npm run lint --workspaces --if-present
+	@pnpm turbo run lint
 	@echo "$(GREEN)✅ Linting completed$(RESET)"
 
 typecheck:
 	@echo "$(BOLD)$(BLUE)🔧 Running TypeScript type checking across all workspaces...$(RESET)"
-	@npm run typecheck --workspaces --if-present
+	@pnpm turbo run typecheck
 	@echo "$(GREEN)✅ Type checking completed$(RESET)"
 
 format:
 	@echo "$(BOLD)$(BLUE)✨ Formatting code across all workspaces...$(RESET)"
-	@npm run format --workspaces --if-present
+	@pnpm turbo run format
 	@echo "$(GREEN)✅ Code formatting completed$(RESET)"
 
 clean:
 	@echo "$(BOLD)$(YELLOW)🧹 Cleaning build artifacts across all workspaces...$(RESET)"
-	@npm run clean --workspaces --if-present
+	@pnpm turbo run clean
 	@echo "$(GREEN)✅ Cleanup completed$(RESET)"
 
 clean-deps:
-	@echo "$(BOLD)$(RED)🗑️ Removing node_modules, dist, build and package-lock.json...$(RESET)"
-	@rm -rf node_modules package-lock.json
-	@rm -rf apps/*/node_modules apps/*/package-lock.json
-	@rm -rf packages/*/node_modules packages/*/package-lock.json
+	@echo "$(BOLD)$(RED)🗑️ Removing node_modules, dist, build and pnpm-lock.yaml...$(RESET)"
+	@rm -rf node_modules pnpm-lock.yaml
+	@rm -rf apps/*/node_modules
+	@rm -rf packages/*/node_modules
 	@rm -rf apps/*/dist apps/*/build apps/*/vercel
 	@rm -rf packages/*/dist packages/*/build packages/*/vercel
+	@rm -rf .turbo
 	@echo "$(GREEN)✅ Dependencies cleaned$(RESET)"
 
 fresh-install: clean-deps
 	@echo "$(BOLD)$(BLUE)🔄 Fresh dependency installation...$(RESET)"
-	@npm install
+	@pnpm install
 	@echo "$(GREEN)✅ Fresh installation completed$(RESET)"
 
 build:
 	@echo "$(BOLD)$(BLUE)🏗️ Building all workspaces...$(RESET)"
-	@npm run build --workspaces --if-present
+	@pnpm turbo run build
 	@echo "$(GREEN)✅ Build completed$(RESET)"
 
 install:
 	@echo "$(BOLD)$(BLUE)📦 Installing dependencies for all workspaces...$(RESET)"
-	@npm install
-	@npm install --workspaces
+	@pnpm install
 	@echo "$(GREEN)✅ Installation completed$(RESET)"
 
 dev:
 	@echo "$(BOLD)$(BLUE)🚀 Starting development servers for all workspaces...$(RESET)"
-	@npm run dev --workspaces --if-present
+	@pnpm turbo run dev
 
 # APPS
 dev-react-wagmi:
-	npm run dev --workspace=apps/react-wagmi
+	pnpm --filter react-wagmi run dev
 
 build-react-wagmi:
-	npm run build --workspace=apps/react-wagmi
+	pnpm --filter react-wagmi run build
 
 .PHONY: lint typecheck format clean clean-deps fresh-install build install dev dev-react-wagmi build-react-wagmi
