@@ -14,7 +14,8 @@
   "scripts": {
     "lint": "eslint . --fix",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules .turbo"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
