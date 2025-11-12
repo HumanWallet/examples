@@ -1,65 +1,44 @@
-# Color definitions
-BLUE := \033[34m
-GREEN := \033[32m
-YELLOW := \033[33m
-RED := \033[31m
-RESET := \033[0m
-BOLD := \033[1m
+.PHONY: lib
+OWNER=Tutellus
 
-lint:
-	@echo "$(BOLD)$(BLUE)🔍 Running linting across all workspaces...$(RESET)"
-	@pnpm turbo run lint
-	@echo "$(GREEN)✅ Linting completed$(RESET)"
+SHELL := /bin/sh
+.DEFAULT_GOAL := help
 
-typecheck:
-	@echo "$(BOLD)$(BLUE)🔧 Running TypeScript type checking across all workspaces...$(RESET)"
-	@pnpm turbo run typecheck
-	@echo "$(GREEN)✅ Type checking completed$(RESET)"
+export DEBUG ?= tutellus:*
+BUILD ?=
 
-format:
-	@echo "$(BOLD)$(BLUE)✨ Formatting code across all workspaces...$(RESET)"
-	@pnpm turbo run format
-	@echo "$(GREEN)✅ Code formatting completed$(RESET)"
+dev: ## develop the application
+	cd apps/react-wagmi && pnpm run dev 
 
-clean:
-	@echo "$(BOLD)$(YELLOW)🧹 Cleaning build artifacts across all workspaces...$(RESET)"
-	@pnpm turbo run clean
-	@echo "$(GREEN)✅ Cleanup completed$(RESET)"
+build: ## build the application
+	pnpm build
 
-clean-deps:
-	@echo "$(BOLD)$(RED)🗑️ Removing node_modules, dist, build and pnpm-lock.yaml...$(RESET)"
-	@rm -rf node_modules pnpm-lock.yaml
-	@rm -rf apps/*/node_modules
-	@rm -rf packages/*/node_modules
-	@rm -rf apps/*/dist apps/*/build apps/*/vercel
-	@rm -rf packages/*/dist packages/*/build packages/*/vercel
-	@rm -rf .turbo
-	@echo "$(GREEN)✅ Dependencies cleaned$(RESET)"
+preview: ## preview the application
+	pnpm preview
 
-fresh-install: clean-deps
-	@echo "$(BOLD)$(BLUE)🔄 Fresh dependency installation...$(RESET)"
-	@pnpm install
-	@echo "$(GREEN)✅ Fresh installation completed$(RESET)"
+build_dev: ## build and then start env
+		make build
+		make dev
 
-build:
-	@echo "$(BOLD)$(BLUE)🏗️ Building all workspaces...$(RESET)"
-	@pnpm turbo run build
-	@echo "$(GREEN)✅ Build completed$(RESET)"
+build_preview: ## build and then start env
+		pnpm build
+		pnpm preview --filter=react-wagmi
 
-install:
-	@echo "$(BOLD)$(BLUE)📦 Installing dependencies for all workspaces...$(RESET)"
-	@pnpm install
-	@echo "$(GREEN)✅ Installation completed$(RESET)"
+clean: ## Remove all artefactories
+	pnpm clean
+	rm -Rf node_modules pnpm-lock.yaml .turbo
 
-dev:
-	@echo "$(BOLD)$(BLUE)🚀 Starting development servers for all workspaces...$(RESET)"
-	@pnpm turbo run dev
+lint: ## Run the linter
+	pnpm lint
 
-# APPS
-dev-react-wagmi:
-	pnpm --filter react-wagmi run dev
+format: ## Run the prettier
+	pnpm format
 
-build-react-wagmi:
-	pnpm --filter react-wagmi run build
+typecheck: ## Run the type checker
+	pnpm typecheck
 
-.PHONY: lint typecheck format clean clean-deps fresh-install build install dev dev-react-wagmi build-react-wagmi
+phoenix: ## Run the phoenix command
+	rm -Rf node_modules pnpm-lock.yaml .turbo dist
+	pnpm clean --filter=@examples/react-wagmi
+	pnpm clean --filter=@examples/ui
+	pnpm install --no-frozen-lockfile
