@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client"
 import { BrowserRouter } from "react-router"
-import { WagmiProviders } from "./wagmi/provider"
-import { ThemeProvider } from "./components/theme-provider"
+
 import App from "./App"
+import { ThemeProvider } from "./components/theme-provider"
+import { WagmiProviders } from "./wagmi/provider"
 import "../../../packages/ui/src/styles/globals.css"
 import "./polyfills"
 

@@ -1,5 +1,5 @@
-import { Link } from "react-router"
 import { Typography } from "@examples/ui"
+import { Link } from "react-router"
 
 export function BrandLogo() {
   return (

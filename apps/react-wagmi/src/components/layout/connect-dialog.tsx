@@ -1,5 +1,5 @@
-import { useConnect } from "wagmi"
 import type { Connector } from "wagmi"
+
 import {
   Button,
   Dialog,
@@ -14,6 +14,7 @@ import {
   Typography,
 } from "@examples/ui"
 import { Wallet, AlertCircle, UserPlus, Key } from "lucide-react"
+import { useConnect } from "wagmi"
 
 export function ConnectDialog({ children }: { children: React.ReactNode }) {
   const { connectors, connect, isPending, error } = useConnect()

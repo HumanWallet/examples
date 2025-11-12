@@ -1,7 +1,3 @@
-import { useEffect, useMemo, useState } from "react"
-import { formatUnits, parseUnits } from "viem"
-import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi"
-import { Gift, Unlock, TrendingUp, Loader2 } from "lucide-react"
 import {
   Button,
   Card,
@@ -14,12 +10,17 @@ import {
   AlertTitle,
   Badge,
 } from "@examples/ui"
-import { Stepper, type StepItem } from "../ui/stepper"
-import { StakingSuccess } from "../ui/staking-success"
-import { TokenAmount } from "../ui/token-amount"
-import { TOKEN_ABI } from "../../contracts/abis/token-abi"
+import { Gift, Unlock, TrendingUp, Loader2 } from "lucide-react"
+import { useEffect, useMemo, useState } from "react"
+import { formatUnits, parseUnits } from "viem"
+import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from "wagmi"
+
 import { STAKING_ABI } from "../../contracts/abis/staking-abi"
+import { TOKEN_ABI } from "../../contracts/abis/token-abi"
 import { CONTRACT_ADDRESSES, MINT_AMOUNT } from "../../contracts/addresses"
+import { StakingSuccess } from "../ui/staking-success"
+import { Stepper, type StepItem } from "../ui/stepper"
+import { TokenAmount } from "../ui/token-amount"
 
 const StakingStep = {
   MINT: "MINT",

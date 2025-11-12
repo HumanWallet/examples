@@ -1,7 +1,5 @@
-import { Copy, Check, ExternalLink, LogOut, User, Wallet, Zap } from "lucide-react"
 import type { Connector } from "wagmi"
-import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
-import { useTruncateAddress } from "@/hooks/use-truncate-address"
+
 import {
   Badge,
   Button,
@@ -15,6 +13,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@examples/ui"
+import { Copy, Check, ExternalLink, LogOut, User, Wallet, Zap } from "lucide-react"
+
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { useTruncateAddress } from "@/hooks/use-truncate-address"
 
 interface WalletDropdownProps {
   readonly userAddress: string

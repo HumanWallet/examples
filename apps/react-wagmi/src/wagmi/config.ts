@@ -1,6 +1,6 @@
+import { humanWalletConnector } from "@humanwallet/connector"
 import { createConfig, http } from "wagmi"
 import { mainnet, sepolia, polygon } from "wagmi/chains"
-import { humanWalletConnector } from "@humanwallet/connector"
 
 const PROJECT_ID = import.meta.env.VITE_HW_PROJECT_ID
 

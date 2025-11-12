@@ -1,5 +1,5 @@
-import { Coins } from "lucide-react"
 import { cn } from "@examples/ui"
+import { Coins } from "lucide-react"
 
 interface TokenAmountProps {
   readonly amount: number

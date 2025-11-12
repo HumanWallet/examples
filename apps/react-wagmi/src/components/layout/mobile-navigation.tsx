@@ -1,5 +1,3 @@
-import { Home, TrendingUp, Network, Zap, Menu, Key } from "lucide-react"
-import { Link } from "react-router"
 import {
   Button,
   Sheet,
@@ -12,6 +10,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@examples/ui"
+import { Home, TrendingUp, Network, Zap, Menu, Key } from "lucide-react"
+import { Link } from "react-router"
+
 import { ModeToggle } from "../mode-toggle"
 
 interface MobileNavigationProps {

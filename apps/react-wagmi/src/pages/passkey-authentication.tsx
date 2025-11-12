@@ -1,5 +1,3 @@
-import { useState } from "react"
-import { useAccount, useSignMessage } from "wagmi"
 import {
   Button,
   Card,
@@ -13,8 +11,12 @@ import {
   Separator,
 } from "@examples/ui"
 import { Shield, Key, CheckCircle, AlertCircle, Copy, RefreshCw } from "lucide-react"
-import { useCopyToClipboard } from "../hooks/use-copy-to-clipboard"
+import { useState } from "react"
+import { useAccount, useSignMessage } from "wagmi"
+
 import { useTruncateAddress } from "@/hooks/use-truncate-address"
+
+import { useCopyToClipboard } from "../hooks/use-copy-to-clipboard"
 
 export function PasskeyAuthenticationPage() {
   const { address } = useAccount()

@@ -1,5 +1,5 @@
-import { CheckCircle, ExternalLink, RotateCcw } from "lucide-react"
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@examples/ui"
+import { CheckCircle, ExternalLink, RotateCcw } from "lucide-react"
 
 interface StakingSuccessProps {
   readonly successTx: string

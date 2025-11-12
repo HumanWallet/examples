@@ -1,6 +1,6 @@
-import * as React from "react"
-import { Check, Circle } from "lucide-react"
 import { cn } from "@examples/ui"
+import { Check, Circle } from "lucide-react"
+import * as React from "react"
 
 export interface StepItem {
   readonly key: string

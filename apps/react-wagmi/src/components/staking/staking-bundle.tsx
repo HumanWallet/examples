@@ -1,7 +1,3 @@
-import { useState, useEffect } from "react"
-import { parseUnits, encodeFunctionData, type Hash } from "viem"
-import { useAccount, useReadContract, useWaitForTransactionReceipt, useSendCalls } from "wagmi"
-import { Package, Loader2 } from "lucide-react"
 import {
   Button,
   Card,
@@ -13,11 +9,16 @@ import {
   AlertDescription,
   AlertTitle,
 } from "@examples/ui"
+import { Package, Loader2 } from "lucide-react"
+import { useState, useEffect } from "react"
+import { parseUnits, encodeFunctionData, type Hash } from "viem"
+import { useAccount, useReadContract, useWaitForTransactionReceipt, useSendCalls } from "wagmi"
+
+import { STAKING_ABI } from "../../contracts/abis/staking-abi"
+import { TOKEN_ABI } from "../../contracts/abis/token-abi"
+import { CONTRACT_ADDRESSES, MINT_AMOUNT } from "../../contracts/addresses"
 import { StakingSuccess } from "../ui/staking-success"
 import { TokenAmount } from "../ui/token-amount"
-import { TOKEN_ABI } from "../../contracts/abis/token-abi"
-import { STAKING_ABI } from "../../contracts/abis/staking-abi"
-import { CONTRACT_ADDRESSES, MINT_AMOUNT } from "../../contracts/addresses"
 
 export const StakingBundle = () => {
   const { address } = useAccount()

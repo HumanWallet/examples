@@ -1,8 +1,9 @@
-import { ConnectDialog } from "@/components/layout"
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@examples/ui"
 import { TrendingUp, Network } from "lucide-react"
 import { Link } from "react-router"
 import { useAccount } from "wagmi"
+
+import { ConnectDialog } from "@/components/layout"
 
 export default function Home() {
   const { isDisconnected } = useAccount()

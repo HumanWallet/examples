@@ -1,8 +1,10 @@
 import type { Connector } from "wagmi"
-import { ModeToggle } from "../mode-toggle"
-import { WalletDropdown } from "./wallet-dropdown"
-import { ConnectDialog } from "./connect-dialog"
+
 import { Button } from "@examples/ui"
+
+import { ModeToggle } from "../mode-toggle"
+import { ConnectDialog } from "./connect-dialog"
+import { WalletDropdown } from "./wallet-dropdown"
 
 interface ConnectionStatusProps {
   readonly isAuthenticated: boolean

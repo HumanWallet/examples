@@ -1,9 +1,11 @@
 import type { Connector } from "wagmi"
+
 import { useAccount, useDisconnect, useSwitchAccount } from "wagmi"
-import { MobileNavigation } from "./mobile-navigation"
+
 import { BrandLogo } from "./brand-logo"
-import { MainNavigation } from "./navigation-menu"
 import { ConnectionStatus } from "./connection-status"
+import { MobileNavigation } from "./mobile-navigation"
+import { MainNavigation } from "./navigation-menu"
 
 export function Header() {
   const { address, chain, isConnected } = useAccount()

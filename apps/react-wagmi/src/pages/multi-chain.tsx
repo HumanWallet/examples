@@ -1,4 +1,3 @@
-import { useAccount, useSwitchChain, useBalance, useChains, useChainId } from "wagmi"
 import {
   Button,
   Card,
@@ -23,6 +22,8 @@ import {
   Globe,
 } from "lucide-react"
 import { formatUnits } from "viem"
+import { useAccount, useSwitchChain, useBalance, useChains, useChainId } from "wagmi"
+
 import type { config } from "@/wagmi/config"
 
 declare module "wagmi" {

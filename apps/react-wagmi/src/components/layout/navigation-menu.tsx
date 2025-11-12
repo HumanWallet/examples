@@ -1,5 +1,3 @@
-import { Home, TrendingUp, Network, Zap, Key } from "lucide-react"
-import { Link } from "react-router"
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -9,6 +7,8 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@examples/ui"
+import { Home, TrendingUp, Network, Zap, Key } from "lucide-react"
+import { Link } from "react-router"
 
 export function MainNavigation() {
   return (

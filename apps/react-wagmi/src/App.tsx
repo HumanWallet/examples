@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router"
+
 import { Header } from "./components/layout"
 import Home from "./pages/home"
-import StakingDemo from "./pages/staking-demo"
 import MultiChain from "./pages/multi-chain"
-import { PasskeyAuthenticationPage } from "./pages/passkey-authentication"
 import { NotFoundPage } from "./pages/not-found"
+import { PasskeyAuthenticationPage } from "./pages/passkey-authentication"
+import StakingDemo from "./pages/staking-demo"
 
 function App() {
   return (

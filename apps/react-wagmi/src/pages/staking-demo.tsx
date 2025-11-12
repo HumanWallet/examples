@@ -1,5 +1,3 @@
-import { useState } from "react"
-import { Package, ListChecks, ArrowRight } from "lucide-react"
 import {
   Card,
   CardContent,
@@ -12,6 +10,9 @@ import {
   TabsTrigger,
   Separator,
 } from "@examples/ui"
+import { Package, ListChecks, ArrowRight } from "lucide-react"
+import { useState } from "react"
+
 import { StakingBundle } from "../components/staking/staking-bundle"
 import { StakingSteps } from "../components/staking/staking-steps"
 
