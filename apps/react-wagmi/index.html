@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/HumanWallet.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Buffer polyfill fix for Web3 libraries - https://developers.binance.com/docs/binance-w3w/evm-compatible-provider#buffer-is-not-defined -->
+    <script>
+      var global = global || window
+    </script>
+        
     <title>Demo HumanWallet React Wagmi</title>
   </head>
   <body>

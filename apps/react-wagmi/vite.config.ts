@@ -1,21 +1,11 @@
 import path from "path"
 import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react-swc"
-import { nodePolyfills } from "vite-plugin-node-polyfills"
 import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    nodePolyfills({
-      // Only include specific polyfills that are actually needed
-      include: ["buffer", "crypto", "stream", "util"],
-      // Exclude polyfills that aren't needed
-      exclude: ["fs", "path", "os"],
-    }),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
